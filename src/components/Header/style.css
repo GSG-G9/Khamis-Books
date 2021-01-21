@@ -1,0 +1,8 @@
+.contanier {
+  margin: 5vh;
+}
+
+.search:hover {
+  background-color: white;
+  border: 2px solid #4285f4;
+}
