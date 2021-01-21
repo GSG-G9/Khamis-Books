@@ -1,11 +1,20 @@
-import React from 'react'
+import { useContext } from "react";
+import { BooksContext } from "../../context/BooksContext";
+import "./style.css";
 
 function Header() {
-    return (
-        <div>
-            <h1>Header</h1>
-        </div>
-    )
+  const { inpValue, handleChange } = useContext(BooksContext);
+  return (
+    <div className="contanier">
+      <input
+        type="text"
+        className="search"
+        value={inpValue}
+        onChange={handleChange}
+        placeholder="Search a Book"
+      />
+    </div>
+  );
 }
 
-export default Header
+export default Header;
