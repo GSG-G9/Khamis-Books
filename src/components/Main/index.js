@@ -8,7 +8,7 @@ function Main() {
 
   useEffect(() => {
     const abortController = new AbortController();
-    axios(`https://www.googleapis.com/books/v1/volumes/?q=a`, {
+    axios(`https://www.googleapis.com/books/v1/volumes/?q=aa`, {
       signal: abortController.signal,
     })
       .then((res) => setData(res.data))
@@ -24,16 +24,12 @@ function Main() {
           data.items.map((item) => (
             <li key={item.id}>
               <p>name: {item.volumeInfo.title}</p>
-              <p>
-                image_url:{" "}
-                <img
-                  src={item.volumeInfo.imageLinks.thumbnail}
-                  alt={item.volumeInfo.title}
-                />
-              </p>
+              <img
+                src={item.volumeInfo.imageLinks.thumbnail}
+                alt={item.volumeInfo.title}
+              />
               <p>description: {item.volumeInfo.description}</p>
-              <p>url: {item.volumeInfo.infoLink}</p>
-              <p>rating: {item.volumeInfo.averageRating}</p>
+             <p>url : <a href={item.volumeInfo.infoLink}>{item.volumeInfo.infoLink}</a></p>
             </li>
           ))}
       </ul>
